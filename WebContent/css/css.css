@@ -1,0 +1,36 @@
+body {
+    padding-top: 50px;
+}
+.starter-template {
+    padding: 40px 15px;
+    text-align: center;
+}
+text-center{
+    text-align: center;
+}
+
+.odd{
+    background-color:red;
+    color:white;
+}
+
+.even{
+    background-color:blue;
+    color:white;
+}
+#seats {
+    width: 120px;
+    height: 120px;
+    background: #88959C;
+    margin: 10px auto;
+    padding-top: 20px;
+}
+#seats p {
+    color: white;
+    margin: 4px auto;
+    width: 100px;
+    text-align: center;
+}
+#seats p .btn-link {
+    color: white;
+}

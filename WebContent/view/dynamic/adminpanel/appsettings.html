@@ -1,0 +1,107 @@
+<div>
+    <h3> Application Settings </h3>
+    <form data-ng-submit="mainVm.changeSettings()"  name="settingsForm" novalidate>
+    <div>
+		<label>Name of Restaurant: </label>
+		<input type="text" class="form-control" placeholder="Currently: {{mainVm.appSettings.orgName}}"  data-ng-model="mainVm.newSettings.orgName" >
+	</div>
+
+	<div>
+		<label> Phone: </label>
+		<input type="text" class="form-control" placeholder="Currently: {{mainVm.appSettings.orgPhone}}" data-ng-model="mainVm.newSettings.orgPhone">
+	</div>      
+	
+	<div>
+		<label> Email: </label>
+		<input type="text" class="form-control" placeholder="Currently: {{mainVm.appSettings.orgEmail}}" data-ng-model="mainVm.newSettings.orgEmail">
+	</div>     
+	<div>
+		<label> Address: </label>
+		<input type="text" class="form-control" placeholder="Currently: {{mainVm.appSettings.orgAddress}}" data-ng-model="mainVm.newSettings.orgAddress">
+	</div>
+	<div>
+		<label> Open Days </label>
+		<input type="text" class="form-control" placeholder="Currently: {{mainVm.appSettings.orgOpenDays}}" data-ng-model="mainVm.newSettings.orgOpenDays">
+	</div> 
+	<div>
+		<label> Open Timings </label>
+		<input type="text" class="form-control" placeholder="Currently: {{mainVm.appSettings.orgTimings}}" data-ng-model="mainVm.newSettings.orgTimings">
+	</div> 	
+	 <div>
+		<label> No of Tables In restaurant </label>
+		<input type="number" class="form-control" placeholder="Currently: {{mainVm.appSettings.orgTableNo}}" data-ng-model="mainVm.newSettings.orgTableNo">
+	</div>
+	<div>	
+	<label>Table Auto Assign</label>
+		<div class="btn-group" data-toggle="buttons">
+		  <label class="btn btn-primary active">
+		    <input type="radio" name="options" id="option1" autocomplete="off" checked> On
+		    <!-- data-ng-model="mainVm.newSettings.newAutoAssign" --> 
+		    <!--  Currently : mainVm.appSettings.newAutoAssign  -->
+		  </label>
+		  <label class="btn btn-primary">
+		    <input type="radio" name="options" id="option2" autocomplete="off"> Off
+		  </label>
+		</div>
+	</div>	
+	 <div>
+		<label> Admin Username: </label>
+		<input type="text" class="form-control" placeholder="Currently: {{mainVm.appSettings.orgUsername}}" data-ng-model="mainVm.appSettings.orgUsername">
+	</div>
+			 <div>
+		<label> Admin Password </label>
+		<input type="password" class="form-control" placeholder="Currently: {{mainVm.appSettings.orgPassword}}" data-ng-model="mainVm.appSettings.orgPassword">
+	</div>
+	  
+	<div>
+	<!-- http://getbootstrap.com/javascript/#buttons -->
+	</div>
+	<div ng-class="">
+			<button type="submit" class="btn btn-default" data-toggle="modal" data-target="#changed">Change it!</button>
+		</div>
+	</form>
+	
+	<!-- Modal -->
+	<div id="changed" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+	
+	    <!-- Modal content-->
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <h4 class="modal-title">Settings Changed!</h4>
+	      </div>
+	      <div class="modal-body">
+	      <div class="alert alert-success" role="alert">
+	      	<h3>	Your settings have been changed!</h3> 
+	      	<br> Here's your new restaurant name:  
+			<p> <strong>{{mainVm.appSettings.orgName}}</strong></p>
+	      	<br> Here's your new restaurant Phone:  
+			<p> <strong>{{mainVm.appSettings.orgPhone}}</strong></p>
+			<br> Here's your new restaurant Email Address:  
+			<p> <strong>{{mainVm.appSettings.orgEmail}}</strong></p>
+	      	<br> Here's your new restaurant Open Days:  
+			<p> <strong>{{mainVm.appSettings.orgOpenDays}}</strong></p>
+	      	<br> Here's your new restaurant Open Timings:  
+			<p> <strong>{{mainVm.appSettings.orgTimings}}</strong></p>						
+	      	<br> Here's your number of tables:  
+			<p> <strong>{{mainVm.appSettings.orgTableNo}}</strong></p>	
+			<br> Here's your Auto Assign Setting: 
+			<p> <strong>{{mainVm.appSettings.orgAutoAssign}}</strong></p>
+			<br> Here's your Username: 
+			<p> <strong>{{mainVm.appSettings.orgUsername}}</strong></p>
+			<br> Here's your Password: 
+			<p> <strong>{{mainVm.appSettings.orgPassword}}</strong></p>			
+						
+		</div>
+	
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	
+	  </div>
+	</div>
+		
+</div>

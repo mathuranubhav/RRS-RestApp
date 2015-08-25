@@ -1,0 +1,123 @@
+<form data-ng-submit="mainVm.addReservation()"  name="resForm" >
+
+		<div  ng-class="{ 'has-error' : resForm.firstname.$invalid && resForm.firstname.$dirty}">
+			<label>First Name*</label>
+			<input type="text" class="form-control" placeholder="John" data-ng-model="mainVm.newReservation.firstName" name="firstname" required>
+			
+		<div ng-messages="resForm.firstname.$error" ng-if='resForm.firstname.$dirty'>
+            <p class="help-block" ng-message="required">First Name is required</p>
+            <p class="help-block" ng-message="email">Invalid Text</p>
+          </div>
+		</div>
+
+		<div ng-class="{ 'has-error' : resForm.lastname.$invalid && resForm.lastname.$dirty}">
+			<label>Last Name*</label>
+			<input type="text" class="form-control" placeholder="Smith" data-ng-model="mainVm.newReservation.lastName" name="lastname" required>
+			
+		<div ng-messages="resForm.lastname.$error" ng-if='resForm.lastname.$dirty'>
+            <p class="help-block" ng-message="required">Last Name is required</p>
+            <p class="help-block" ng-message="email">Invalid Text</p>
+          </div>
+          
+		</div>
+		<div ng-class="{ 'has-error' : resForm.email.$invalid && resForm.email.$dirty}">
+		
+			<label>Email*</label>
+			<input type="email"class="form-control" name="email" placeholder="Email" data-ng-model="mainVm.newReservation.email" required>
+		
+		<div ng-messages="resForm.email.$error" ng-if='resForm.email.$dirty'>
+            <p class="help-block" ng-message="required">Email is required</p>
+            <p class="help-block" ng-message="email">Enter a valid email</p>
+          </div>
+		</div>
+		
+		
+		
+		<div ng-class="{ 'has-error' : resForm.phoneno.$invalid && resForm.phoneno.$dirty}">
+			<label>Phone No: *</label>
+			<input type="tel" class="form-control" name="phoneno" placeholder="9091001000" data-ng-model="mainVm.newReservation.phone" pattern="[0-9]" required>
+			
+			<div ng-messages="resForm.phoneno.$error" ng-if='resForm.phoneno.$dirty'>
+            <p class="help-block" ng-message="required">Phone Number is required</p>
+            <p class="help-block" ng-message="">Phone Number a invalid</p>
+			<p class="help-block" ng-message="maxlength">Please enter 10 characters</p>            
+            
+          </div>
+		</div>
+		
+		
+		
+		<div ng-class="{ 'has-error' : resForm.partysize.$invalid && resForm.partySize.$dirty}">
+			<label>Party Size:*</label>
+			<input type="number" min=1 max=100 class="form-control" placeholder="Choose Number" name="partysize" data-ng-model="mainVm.newReservation.partySize" required>
+		
+		<div ng-messages="resForm.partysize.$error" ng-if='resForm.partysize.$dirty'>
+            <p class="help-block" ng-message="required">Party Size is required</p>
+            <p class="help-block" ng-message="email">Enter a valid number</p>
+          </div>
+		</div>
+
+		<div ng-class="{ 'has-error' : resForm.spcl.$invalid && resForm.spcl.$dirty}">
+			<label>Special Requests:</label>
+			<input type="text"  class="form-control" placeholder="Example: Birthday Cake" name="spcl" data-ng-model="mainVm.newReservation.specialNeed" ng-maxlength="1000" >
+  		<div ng-messages="resForm.spcl.$error" ng-if='resForm.spcl.$dirty'>
+  			<p class="help-block" ng-message="maxlength">Please enter less than 1000 characters</p> 
+  		</div>
+        </div>
+		
+		<div ng-class="{ 'has-error' : resForm.date.$invalid && resForm.date.$dirty}">
+			<label>Date:* </label>
+			<input type="date" class="form-control" placeholder="mm/dd/yyyy" data-ng-model="mainVm.newReservation.date" name="date" required>
+			
+		<div ng-messages="resForm.date.$error" ng-if='resForm.date.$dirty'>
+            <p class="help-block" ng-message="required">Date is required</p>
+            <p class="help-block" ng-message="date">Date a invalid</p>
+          </div>
+		</div>
+		
+		
+		
+		<div ng-class="{ 'has-error' : resForm.time.$invalid && resForm.time.$dirty}">
+			<label>Time: *</label>
+			<input type="time" class="form-control" placeholder="Time" data-ng-model="mainVm.newReservation.time" name="time" required>
+			
+		   <div ng-messages="resForm.time.$error" ng-if='resForm.time.$dirty'>
+            <p class="help-block" ng-message="required">Time is required</p>
+            <p class="help-block" ng-message="email">Time invalid email</p>
+          </div>			
+		</div>
+		
+		
+		<div ng-class="">
+			<button type="submit" class="btn btn-default" data-toggle="modal" data-target="#myModal">Make it Happen!</button>
+		</div>
+		<div><p>* - Required fields</p></div>
+	</form>
+	
+	<!-- Modal -->
+	<div id="myModal" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+	
+	    <!-- Modal content-->
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <h4 class="modal-title">Reservation Confirmed!</h4>
+	      </div>
+	      <div class="modal-body">
+	      <div class="alert alert-success" role="alert">
+	      	<h3>	Your reservation has been created!</h3> 
+	      	<br> Here's your confirmation number:  
+			<p> <strong>{{mainVm.people[mainVm.people.length-1].confNo}}</strong></p>
+	      	<br> Here's your table number:  
+			<p> <strong>{{mainVm.people[mainVm.people.length-1].tableNo}}</strong></p>			
+		</div>
+	
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	
+	  </div>
+	</div>

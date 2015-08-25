@@ -1,0 +1,71 @@
+<!doctype HTML>
+        <html ng-app="RRS">
+            <head>
+                <script src="https://code.angularjs.org/1.4.3/angular.js" data-semver=1.2.28"> </script>
+                <script src="../js/app-js.js"></script>
+                <!-- Latest compiled and minified CSS -->
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+                <link rel="stylesheet" href="../css/css.css">
+
+            </head>
+
+                <body>
+                    <p>
+                        This is printed using  Angular JS {{'Hello' + 'World'}}
+                    </p>
+                    <input type="text" ng-model="Model1" placeholder ="Type any text here">
+                    <p>
+                        The text you entered is : {{Model1}}
+                    </p>
+                <input type=text" ng-model="Model2" placeholder="Text2">
+                <p>
+                    The text you entered again is {{Model2}}
+                </p>
+                <div class="" id="container" ng-controller="MainController as mainVm">
+
+                <h1>    Welcome to {{mainVm.orgName}}    </h1>
+                <form ng-submit="mainVm.addReservation">
+                <h3>Add a person</h3>
+                    <div class="row">
+                        <div class="col-md-4">
+                 x   <label>Name</label><input type="text" class="form-control" ng-model="mainVm.newReservation.email" placeholder="Email">
+                    <label>Date</label><input type="text" class="form-control" ng-model="mainVm.newReservation.address.city" placeholder="City">
+                    <label>#</label><input type="text" class="form-control" ng-model="mainVm.newReservation.website" placeholder="Website">
+                    <label>Action</label><input type="text" class="form-control" ng-model="mainVm.newReservation.address.zipcode" placeholder="ZIP">
+                    <hr>
+                    <button class="btn btn-primary" ng-click="mainVm.addReservation()">Add Person!</button>
+                    </div>
+                </div>
+                </form>
+                <input type="search" class="form-control" ng-model="mainVm.searchtext.name" placeholder="Search Here">
+
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>CNF#</th>
+                        <th>Name</th>
+                        <th>Date</th>
+                        <th>#</th>
+                        <th></th>
+                        <th>Website</th>
+                        <th>Company</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr ng-repeat="p in mainVm.people | filter:mainVm.searchtext">
+                            <!-- ng-class="{true: 'odd', false:'even'}[p.id%2 == 0]" -->
+                            <!-- ng-show="p.id%2"-->
+                            <!-- ng-hide="p.id%2"-->
+                            <td>{{p.name}}</td>
+                            <td>{{p.email}}</td>
+                            <td>{{p.address.city}}</td>
+                            <td>{{p.address.zipcode}}</td>
+                            <td>{{p.website}}</td>
+                            <td>{{p.company.name}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+             </body>
+</html>
