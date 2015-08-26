@@ -4,6 +4,19 @@ Restaurant Reservation System using REST and AngularJS
 
 This project was created using Angular JS, HTML, CSS, Bootstrap, Javascript. 
 
+Instructions to run the Project: 
+
+1) Run the given Database Script SQLDump.sql to install the dummy data onto the database. (MySQL Workbench)
+2) Install Eclipse IDE
+3) Load the project in eclipse. 
+4) Run the index.html file
+
+Database Creation: 
+Run the file SQLDump.sql
+
+Default Username: admin@admin.com
+Default Password: password
+
 Features: 
 
 This project was created to be a customizable Restaurant Reservation System.  
@@ -38,20 +51,6 @@ Future work:
 5) Contacts Table Unique
 6) Angular Testing
   
-
-Instructions to run the Project: 
-
-1) Run the given Database Scripts in the /DBScripts folder to install the dummy data onto the database. (MySQL Workbench)
-2) Install Eclipse IDE
-3) Load the project in eclipse. 
-4) Run the index.html file
-
-Database Creation: 
-Run the file SQLDump.sql
-
-Default Username: admin@admin.com
-Default Password: password
-
 Details about RESTFul API: 
 
 The RESTFul API for this application was built using Jersey-Jackson
