@@ -171,4 +171,55 @@ public class ReservationDAO {
 		
 		return res;
 	}
+	public Reservation updateReservation(Reservation res) throws AppException {
+		
+		Connection con = DBUtil.connectToDB();
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		try {
+			System.out.println("Entered debugging");
+			System.out.println(res.getId());
+			System.out.println(res.getFirstName());
+			System.out.println(res.getLastName());
+			System.out.println(res.getEmail());
+			System.out.println(res.getPhone());
+			System.out.println(res.getPartySize());
+			System.out.println(res.getSpecialNeed());
+			System.out.println(res.getDate());
+			System.out.println(res.getTime());
+			System.out.println(res.getConfNo());
+			
+			ps = con.prepareStatement("UPDATE res_db.reservations SET FIRST_NAME=?, LAST_NAME=?, EMAIL=?, PHONE=?, PARTYSIZE=?, SPECIALNEED=?, DATE=?, TIME=?, CONFNO=?, TABLENO=? WHERE ID=?", PreparedStatement.RETURN_GENERATED_KEYS);
+			System.out.println(res.getFirstName());
+			ps.setString(1, res.getFirstName());
+			ps.setString(2, res.getLastName());
+			ps.setString(3, res.getEmail());
+			ps.setString(4, res.getPhone());
+			ps.setInt(5, res.getPartySize());
+			ps.setString(6, res.getSpecialNeed());
+			ps.setString(7, res.getDate());
+			ps.setString(8, res.getTime());
+			ps.setString(9, res.getConfNo());
+			ps.setInt(10, res.getTableNo());
+			ps.setInt(11, res.getId());
+			ps.executeUpdate();
+			
+			rs = ps.getGeneratedKeys();
+			
+			if(rs.next())
+			{
+				res.setId(rs.getInt(1));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new AppException("Error in updating reservations to the database.", e.getCause());
+		}
+		finally {
+			DBUtil.closeResources(ps, rs, con);
+		}
+		
+		return res;
+	}	
 }

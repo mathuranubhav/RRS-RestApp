@@ -7,34 +7,17 @@
             <div class="col-md-6">
                 <h3>Seating Area</h3>
   
-                
-            <div class="col-md-4">
-                <div class="seats img-rounded">
-                    <p>Table # 1</p>
-                    <p>Occupied</p>
-                    <p>
-                        <button type="button" class="btn btn-link">DA83CD</button>
-                    </p>
+
+      
+            <div class="col-md-4" ng-repeat="t in mainVm.getTimes() track by $index">
+                <div class="img-rounded seats"  >
+                    <p>Table # {{$index+1}}</p>
+<!--                  
+                    <p >Occupied</p>
+                    <p><button type="button" class="btn btn-link" >Table</button></p>  -->
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="seats img-circle">
-                    <p>Table # 1</p>
-                    <p>Occupied</p>
-                    <p>
-                        <button type="button" class="btn btn-link">DA83CD</button>
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="seats img-rounded">
-                    <p>Table # 1</p>
-                    <p>Occupied</p>
-                    <p>
-                        <button type="button" class="btn btn-link">DA83CD</button>
-                    </p>
-                </div>
-            </div>
+
 			</div>
 
 			

@@ -49,12 +49,12 @@
 	      </div>
 	      <div class="modal-body">
 	      
-	      <form data-ng-submit="mainVm.editReservation()"  name="confForm">
+	      <form name="confForm">
 	      <div ng-class="{ 'has-error' : confForm.confNo.$invalid && confForm.confNo.$dirty}">
-			<label>Please Enter Your Confimation number :</label>
-			<input type="text" class="form-control" placeholder="AlphaNumeric Characters" data-ng-model="mainVm.editedReservation.confNo" name="confNo" required>
+			<label>Please Enter Your Confirmation number :</label>
+			<input type="text" class="form-control" placeholder="Alphanumeric characters" data-ng-model="mainVm.editedReservation.confNo" name="confNo" required>
 		
-			<button type="submit" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#editRes">Submit</button>
+			<button type="submit" ng-click="mainVm.findReservation(mainVm.editedReservation.confNo)" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#editRes">Submit</button>
 		</div>
 		</form>
 			

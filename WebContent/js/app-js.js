@@ -8,7 +8,7 @@
 //Fetch Modules
         angular.module('RRS').controller('MainController', MainControllerfn);
 
-//Routing Module Config
+//Routing Config
         function moduleConfig($routeProvider) {
             $routeProvider
                 .when('/addform', {
@@ -45,7 +45,7 @@
                 .when('/contacts', {
                     templateUrl: 'dynamic/contacts.html',
                     controller: 'ContactsCtrl',
-                    controllerAs: 'cctrl'
+                    controllerAs: 'contactsctrl'
                 })
                 .when('/admin', {
                     templateUrl: 'dynamic/adminpanel/adminpanel.html',
@@ -134,7 +134,7 @@
             	};
             	           	
     		             
-            //Deleting the reservations
+//Deleting the reservations
             mainVm.deleteReservation = function (position, delRes) {
 
             	console.log(position);
@@ -152,32 +152,58 @@
                 mainVm.people.splice(position, 1); // Removing the element from Angular Array            	
             	};
             	
-            	//Edit Reservations
+//Edit Reservations
                 mainVm.editReservation = function (position, editRes) {
-                	
-                	console.log(position);
-                	console.log(editRes);
                 	mainVm.editedReservation=editRes;
-                	console.log(mainVm.editedReservation);
-                	    	
-//                	$http({
-//        				method: 'POST',
-//        				url: '../api/reservations/delete',
-//        				data: delRes
-//        			}).success(function(data){
-//        				console.log(data);
-//        				delRes = null;
-//        			}).error(function(error){
-//        				console.log(error);
-//        			});
-     	
-                	};            	
+            	};
             	
-            	
-    		//Get one reservation
-    		//Edit one reservation
+            	mainVm.editReservation2 = function (){
+                	
+            		console.log("Function Executed")
+            		for (var key in mainVm.people) { //Loads people keys for Comparison
+                		if (mainVm.people.hasOwnProperty(key)) { //If people has value for keys
+                			if(mainVm.people[key].id==mainVm.editedReservation.id) // Checks ID
+                			{
+                				console.log("Inside loop")
+                				console.log(mainVm.people[key]=mainVm.editedReservation)  //Copies edited reservation into corresponding reservation.
+                			}
+             			
+                		}
+                	}
+           			$http({
+        				method: 'POST',
+        				url: '../api/reservations/update',
+        				data: mainVm.editedReservation
+        			}).success(function(data){
+        				console.log(data);
+        			}).error(function(error){
+        				console.log(error);
+        			});
 
-            //Change Settings Function
+           			mainVm.editedReservation=null; // Clears the editedReservation for data privacy.           			
+            		
+            		
+            	};
+            	mainVm.findReservation = function (confno){
+            		for (var key in mainVm.people) { //Loads people keys for Comparison
+                		if (mainVm.people.hasOwnProperty(key)) { //If people has value for keys
+                			if(mainVm.people[key].confNo==mainVm.editedReservation.confNo) // Checks ID
+                			{
+                				console.log("Inside loop")
+          				
+                				console.log(mainVm.editedReservation=mainVm.people[key]);  //Copies reservation into corresponding Buffer array.
+                			}
+             			
+                		}
+                	}            		
+            		
+            	}
+       	
+     	
+           	
+            	
+            	
+//Change Settings Function
             mainVm.changeSettings = function () {
 //            	console.log("Function Called");
 //            	console.log("New Settings Array"+mainVm.newSettings)
@@ -205,8 +231,7 @@
     			}).error(function(error){
     				console.log(error);
     			});
-                
-            	
+
             };
 
           //Admin Login Function
@@ -222,12 +247,10 @@
             		window.alert('Wrong username or password');
             		
             	}
-            	
-         
-            	
-            
             }            
-            
+//Generate Random Confirmation code
+
+          
     		function genconf()
     		{
     		    var text = "";
@@ -251,7 +274,7 @@
     		}
     		mainVm.confCheck = function()
     		{
-    			console.log("Conf No is: " + mainVm.editedReservation.confNo)
+    			console.log("Conf No is: " + mainVm.editedReservation.confNo);
     		}
     		
     		mainVm.convertDate = function (input)
@@ -264,27 +287,23 @@
     			t= new Date(input);
     			return t.toTimeString();
     		}
+    		mainVm.getTimes=function(){
+    			 return new Array(mainVm.appSettings.orgTableNo);
+//    			arr=new Array ();
+//    			var j=1;
+//    			var i=1;
+//    			while(i<mainVm.appSettings.orgTableNo){  //Cycles through all the 1->Table No's
+//    				while(j<mainVm.people.length) //Cycles through People
+//   			     	{
+//    					if(mainVm.people[j].tableNo==i)
+//							{arr[i]=(i,"Occupied")}
+//    				    else{arr[i]=(i,"Empty")}
+//					    j++
+//   			     	}
+//    				i++
+//    			}
+//    			console.log(arr)
+    		};
         }
-
-
-        
-
-        //Page Controllers
- 
-
-
-//            function loadUser($http) {
-//                return $http({
-//                    method: 'GET',
-//                    url: 'http://jsonplaceholder.typicode.com/users/1'
-//                });
-//            }
-//
-//            function loadUserPic($http) {
-//                return $http({
-//                    method: 'GET',
-//                    url: 'http://jsonplaceholder.typicode.com/photos/1'
-//                });
-//            }
 	}
 )();

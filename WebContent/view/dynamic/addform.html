@@ -35,7 +35,7 @@
 		
 		<div ng-class="{ 'has-error' : resForm.phoneno.$invalid && resForm.phoneno.$dirty}">
 			<label>Phone No: *</label>
-			<input type="tel" class="form-control" name="phoneno" placeholder="9091001000" data-ng-model="mainVm.newReservation.phone" pattern="[0-9]" required>
+			<input type="tel" class="form-control" name="phoneno" placeholder="9091001000" data-ng-model="mainVm.newReservation.phone" required>
 			
 			<div ng-messages="resForm.phoneno.$error" ng-if='resForm.phoneno.$dirty'>
             <p class="help-block" ng-message="required">Phone Number is required</p>
@@ -49,7 +49,7 @@
 		
 		<div ng-class="{ 'has-error' : resForm.partysize.$invalid && resForm.partySize.$dirty}">
 			<label>Party Size:*</label>
-			<input type="number" min=1 max=100 class="form-control" placeholder="Choose Number" name="partysize" data-ng-model="mainVm.newReservation.partySize" required>
+			<input type="number" min=1 max=100 name="partysize" class="form-control" placeholder="Choose Number" name="partysize" data-ng-model="mainVm.newReservation.partySize" required>
 		
 		<div ng-messages="resForm.partysize.$error" ng-if='resForm.partysize.$dirty'>
             <p class="help-block" ng-message="required">Party Size is required</p>

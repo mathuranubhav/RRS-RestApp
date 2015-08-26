@@ -92,5 +92,25 @@ public class ReservationController {
 			resp.setMessage(e.getMessage());
 		}
 		return resp;
-	}	
+	}
+
+	@POST
+	@Path("/update")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public AppResponse updateReservation(Reservation emp) {
+		AppResponse resp = new AppResponse();
+
+		try {
+			ReservationDAO dao = new ReservationDAO();
+			emp = dao.updateReservation(emp);
+			resp.setMessage("Reservation has been update from the system.");
+			resp.setPayload(emp);
+		} catch (AppException e) {
+			e.printStackTrace();
+			resp.setStatus(AppResponse.ERROR);
+			resp.setMessage(e.getMessage());
+		}
+		return resp;
+	}		
 }

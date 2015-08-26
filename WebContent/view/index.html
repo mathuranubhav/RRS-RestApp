@@ -30,7 +30,7 @@
 	    
 	</head>
 	
-	<body>
+	<body class="container" ng-controller="MainController as mainVm">
 <!-- Navigation bar Code -->
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 	    <div class="container">
@@ -41,20 +41,20 @@
 	                <span class="icon-bar"></span>
 	                <span class="icon-bar"></span>
 	            </button>
-	            <a class="navbar-brand" href="/addedit">DH</a>
+	            <a class="navbar-brand" href="#/addedit">{{mainVm.appSettings.orgName}}</a>
 	        </div>
 	        <div id="navbar" class="collapse navbar-collapse">
 	            <ul class="nav navbar-nav">
-	                <li ><a href="#/addedit">Home</a></li>
+	                <!-- <li ><a href="#/addedit">Home</a></li> -->
 	                <li><a href="#/adminlogin">Administrator Login</a></li>
-	                <li><a href="#">Contact</a></li>
+	                <!--<li><a href="#">Contact</a></li>-->
 	            </ul>
 	        </div><!--/.nav-collapse -->
 	    </div>
 	</nav>
 <!-- End Nav Bar Code -->
 
-	<div class="container" ng-controller="MainController as mainVm">
+	<div>
 	    <div class="container-fluid">
 	        <div class="row">
 	            <div class="col-md-12">

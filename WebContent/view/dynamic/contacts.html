@@ -1,7 +1,29 @@
 <!-- Dyanmic View Body for Contacts -->
 
-<div>
-    contacts html
-    </div>
+            <div class="col-md-12">
+                <h3>All Contacts</h3>
+                <input type="search" class="form-control" ng-model="mainVm.searchtext" placeholder="Search By All Properties" id="search">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                    </tr>
+                    </thead>
 
+                    <tbody>
+                    <tr ng-repeat="p in mainVm.people | filter:mainVm.searchtext ">
+                        <!-- ng-class="{true: 'odd', false:'even'}[p.id%2 == 0]" -->
+                        <!-- ng-show="p.id%2"-->
+                        <!-- ng-hide="p.id%2"-->
+                        <td>{{p.firstName+" "+p.lastName}}</td>
+                        <td>{{p.email}}</td>
+                        <td>{{p.phone}}</td>
+                
+                    </tr>
+                    </tbody>
+
+                </table>
+            </div>
 

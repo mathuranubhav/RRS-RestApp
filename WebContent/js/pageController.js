@@ -2,12 +2,12 @@
 
 (function(){
 
-    angular.module('RRS').controller('ContactCtrl', ContactController);
+    angular.module('RRS').controller('ContactsCtrl', ContactsController);
 
-    function ContactController ($routeParams) {
-        var contactctrl = this;
+    function ContactsController ($routeParams) {
+        var contactsctrl = this;
 
-        contactctrl.params = $routeParams;
+        contactsctrl.params = $routeParams;
         console.log('Contact Controller');
     }
 })();

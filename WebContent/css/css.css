@@ -5,7 +5,7 @@ body {
     padding: 40px 15px;
     text-align: center;
 }
-text-center{
+.text-center{
     text-align: center;
 }
 
@@ -18,19 +18,19 @@ text-center{
     background-color:blue;
     color:white;
 }
-#seats {
+.seats {
     width: 120px;
     height: 120px;
-    background: #88959C;
+    background-color: #88959C;
     margin: 10px auto;
     padding-top: 20px;
 }
-#seats p {
+.seats p {
     color: white;
     margin: 4px auto;
     width: 100px;
     text-align: center;
 }
-#seats p .btn-link {
+.seats p .btn-link {
     color: white;
 }
